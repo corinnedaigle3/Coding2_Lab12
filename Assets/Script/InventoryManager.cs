@@ -1,16 +1,36 @@
-using UnityEngine;
+using System;
 
-public class InventoryManager : MonoBehaviour
+class Program
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Linear Search Method
+    static int LinearSearch(int[] arr, int target)
     {
-        // Initialization code here
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == target)
+            {
+                return i; // Return the index if the target is found
+            }
+        }
+        return -1; // Return -1 if the target is not found
     }
 
-    // Update is called once per frame
-    void Update()
+    static void Main()
     {
-        
+        // Example Usage
+        int[] numbers = { 10, 25, 30, 45, 50, 65, 80 };
+        int target = 45;
+
+        int result = LinearSearch(numbers, target);
+
+        // Print the result
+        if (result != -1)
+        {
+            Console.WriteLine($"Target value {target} found at index {result}");
+        }
+        else
+        {
+            Console.WriteLine($"Target value {target} not found in the array");
+        }
     }
 }
