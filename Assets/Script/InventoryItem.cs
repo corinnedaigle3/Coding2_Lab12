@@ -1,23 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryItem : MonoBehaviour
+public class InventoryItem
 {
-    public string id;
-    public string name;
-    public int value;
+    public float itemId;
+    public string itemName;
+    public float itemValue;
 
-    List<string> inventoryItems = new List<string>();
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public InventoryItem(string name, float id, float value)
     {
-        
+        itemId = id;
+        itemName = name;
+        itemValue = value;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
