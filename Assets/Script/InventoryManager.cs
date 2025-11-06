@@ -41,12 +41,12 @@ class InventoryManager : MonoBehaviour
      {
          foreach (InventoryItem newItem in inventoryItems)
          {
-             if (itemName == newItem)
+             if (newItem.itemName == itemName)
              {
-                 return newItem; // Return the index if the target is found
+                 return newItem; 
              }
          }
-         return null; // Return -1 if the target is not found
+         return null; 
      }
 
      static void Main()
@@ -68,7 +68,7 @@ class InventoryManager : MonoBehaviour
          }
      }
 
-    /* public InventoryItem BinarySearch(int[] arr, int target)
+     public InventoryItem BinarySearch(int[] arr, int target)
      {
          int left = 0;
          int right = arr.Length - 1;
@@ -92,5 +92,5 @@ class InventoryManager : MonoBehaviour
          }
 
          return -1; // Return -1 if the target is not found
-     }*/
+     }
 }
