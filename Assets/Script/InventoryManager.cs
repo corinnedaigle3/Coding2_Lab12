@@ -37,16 +37,16 @@ class InventoryManager : MonoBehaviour
     }
 
     // Linear Search Method
-    /* static int LinearSearch(int[] arr, int target)
+     public InventoryItem LinearSearch(string itemName)
      {
-         for (int i = 0; i < arr.Length; i++)
+         foreach (InventoryItem newItem in inventoryItems)
          {
-             if (arr[i] == target)
+             if (itemName == newItem)
              {
-                 return i; // Return the index if the target is found
+                 return newItem; // Return the index if the target is found
              }
          }
-         return -1; // Return -1 if the target is not found
+         return null; // Return -1 if the target is not found
      }
 
      static void Main()
@@ -66,5 +66,31 @@ class InventoryManager : MonoBehaviour
          {
              Console.WriteLine($"Target value {target} not found in the array");
          }
+     }
+
+    /* public InventoryItem BinarySearch(int[] arr, int target)
+     {
+         int left = 0;
+         int right = arr.Length - 1;
+
+         while (left <= right)
+         {
+             int mid = left + (right - left) / 2;
+
+             if (arr[mid] == target)
+             {
+                 return mid; // Return the index if the target is found
+             }
+             else if (arr[mid] < target)
+             {
+                 left = mid + 1; // Narrow the search to the upper half
+             }
+             else
+             {
+                 right = mid - 1; // Narrow the search to the lower half
+             }
+         }
+
+         return -1; // Return -1 if the target is not found
      }*/
 }
