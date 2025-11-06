@@ -16,6 +16,12 @@ class InventoryManager : MonoBehaviour
 
         Debug.Log("After sorting by ID:");
         PrintInventory();
+
+        // Sort by Value before performing quick search
+        inventoryItems.Sort((a, b) => a.itemValue.CompareTo(b.itemValue));
+
+        Debug.Log("After sorting by Value:");
+        PrintInventory();
     }
 
     public void InitializeInventory()
@@ -50,7 +56,7 @@ class InventoryManager : MonoBehaviour
     }
 
     // Binary Search by ID (works only on a sorted list)
-    public InventoryItem BinarySearchByID(float targetId)
+    public InventoryItem BinarySearchByID(float ID)
     {
         int left = 0;
         int right = inventoryItems.Count - 1;
@@ -60,11 +66,11 @@ class InventoryManager : MonoBehaviour
             int mid = left + (right - left) / 2;
             float midId = inventoryItems[mid].itemId;
 
-            if (Mathf.Approximately(midId, targetId))
+            if (Mathf.Approximately(midId, ID))
             {
                 return inventoryItems[mid]; // Found match
             }
-            else if (midId < targetId)
+            else if (midId < ID)
             {
                 left = mid + 1; // Search right half
             }
@@ -75,5 +81,43 @@ class InventoryManager : MonoBehaviour
         }
 
         return null; // Not found
+    }
+
+    public int partition(float value)
+    {
+        int first = 0;
+        int last = inventoryItems.Count - 1;
+
+        int pivot = last;
+        int smaller = (first - 1);
+
+        for (int element = first; element < last; element++)
+        {
+            if (value < pivot)
+            {
+                element++;
+
+                int temporary = smaller;
+                smaller = element;
+                element = temporary;
+            }
+        }
+
+        int temporaryNext = smaller + 1;
+        temporaryNext = last;
+        last = temporaryNext;
+
+        return smaller + 1;
+    }
+
+    public void quickSort(float value)
+    {
+        int first = 0;
+        int last = inventoryItems.Count - 1;
+
+        if (first < last)
+        {
+            quickSort(value);
+        }
     }
 }
