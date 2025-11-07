@@ -6,7 +6,7 @@ This lab creates a basic inventory list that searches/sorts the inventory in mul
 
 • The InventoryItem.cs script defines an InventoryItem class with an Id, name, and value.
 
-• The InventoryManager.cs script initializes a list of InventoryItem objects with random Ids and values using Random.value. It also seraches the list using a Linear and Binary serach, and sorts using Quicksort.
+• The InventoryManager.cs script initializes a list of InventoryItem objects with random Ids and values using Random.Range and Random.value. It also seraches the list using a Linear and Binary serach, and sorts using Quicksort.
 
 • The Linear search uses a name to find whether the item exists or not.
 
